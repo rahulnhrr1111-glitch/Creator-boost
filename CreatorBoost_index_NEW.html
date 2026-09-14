@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CreatorBoost — Instagram Growth</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#09090f;color:#fff}
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#0d0d14;border-bottom:1px solid #292936}
+.logo{font-size:28px;font-weight:800}.pink{color:#ff1687}
+nav a{color:#ddd;text-decoration:none;margin-left:24px}
+.hero{text-align:center;padding:75px 7%;background:radial-gradient(circle at 50% 15%,#45113e,#09090f 58%)}
+.badge{color:#ff68b0;font-weight:700;letter-spacing:1px}
+h1{font-size:clamp(42px,8vw,76px);margin:20px 0 15px}
+h2{font-size:38px;margin-bottom:35px}
+.hero p{max-width:720px;margin:0 auto 30px;color:#c7c7d0;font-size:19px;line-height:1.6}
+.btn{display:inline-block;border:0;border-radius:14px;padding:15px 25px;font-size:17px;font-weight:700;cursor:pointer;text-decoration:none;background:#ff1687;color:#fff}
+.btn.alt{background:#242330;margin-left:10px}
+section{padding:65px 7%;max-width:1100px;margin:auto}
+.center{text-align:center}
+.card{background:#15151f;border:1px solid #2a2a38;border-radius:20px;padding:25px;margin:18px 0}
+input,select{width:100%;padding:15px;border-radius:12px;border:1px solid #3a3a49;background:#0e0e16;color:#fff;font-size:16px;margin:8px 0 15px}
+label{color:#ccc}
+.result{display:none;margin-top:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.package h3{font-size:23px;margin-top:0}.price{font-size:30px;font-weight:800;color:#ff3d9b}
+ul{color:#cfcfd8;line-height:1.9;padding-left:22px}
+.tip{color:#aaa;font-size:14px}
+footer{text-align:center;padding:30px;color:#888;border-top:1px solid #242430}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Creator<span class="pink">Boost</span></div>
+  <div>
+    <a href="#analyze">Analyze</a>
+    <a href="#ideas">Reels</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="badge">REAL CONTENT • REAL GROWTH</div>
+  <h1>Grow Your <span class="pink">Instagram</span></h1>
+  <p>Improve your profile, content and reach with practical creator tools. No fake followers, bots or spam.</p>
+  <a class="btn" href="#analyze">Analyze Profile</a>
+  <a class="btn alt" href="#ideas">Get Reel Ideas</a>
+</header>
+
+<section id="analyze">
+  <h2 class="center">Instagram Profile Analyzer</h2>
+  <div class="card">
+    <label>Instagram username</label>
+    <input id="username" placeholder="@yourusername">
+    <label>What do you post?</label>
+    <select id="niche">
+      <option>Fashion / Lifestyle</option>
+      <option>Gaming</option>
+      <option>Travel</option>
+      <option>Cars / Trucks</option>
+      <option>Comedy</option>
+      <option>Education</option>
+      <option>Fitness / Sports</option>
+      <option>Other</option>
+    </select>
+    <button class="btn" onclick="analyze()">Analyze Now</button>
+    <div id="result" class="result card">
+      <h3>CreatorBoost Report for <span id="outUser" class="pink"></span></h3>
+      <p id="score"></p>
+      <ul id="tips"></ul>
+      <p class="tip">Note: this quick tool gives a content strategy from the information you enter; it does not log into Instagram or access private data.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ideas">
+  <h2 class="center">Reel Ideas Generator</h2>
+  <div class="card">
+    <label>Choose your niche</label>
+    <select id="ideaNiche">
+      <option>Fashion / Lifestyle</option><option>Gaming</option><option>Travel</option>
+      <option>Cars / Trucks</option><option>Comedy</option><option>Education</option><option>Fitness / Sports</option>
+    </select>
+    <button class="btn" onclick="ideas()">Generate 5 Ideas</button>
+    <div id="ideasBox" class="result"></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2 class="center">Creator Packages</h2>
+  <div class="grid">
+    <div class="card package"><h3>Starter</h3><div class="price">₹199</div><ul><li>Profile improvement checklist</li><li>10 Reel ideas</li><li>Caption ideas</li></ul></div>
+    <div class="card package"><h3>Creator</h3><div class="price">₹499</div><ul><li>Profile + content audit</li><li>30 Reel ideas</li><li>30 caption hooks</li></ul></div>
+    <div class="card package"><h3>Pro</h3><div class="price">₹999</div><ul><li>Complete content plan</li><li>60 Reel ideas</li><li>30-day posting calendar</li></ul></div>
+  </div>
+</section>
+
+<footer>© 2026 CreatorBoost • Built for genuine creator growth</footer>
+
+<script>
+function analyze(){
+  let u=document.getElementById('username').value.trim()||'Creator';
+  let n=document.getElementById('niche').value;
+  document.getElementById('outUser').textContent=u.startsWith('@')?u:'@'+u;
+  let score=Math.floor(70+Math.random()*21);
+  document.getElementById('score').innerHTML='Quick strategy score: <b class="pink">'+score+'/100</b> — focus on consistency and strong hooks.';
+  let tips=[
+    'Make the first 1–2 seconds of every Reel immediately clear and interesting.',
+    'Use a simple, searchable caption with a clear call-to-action.',
+    'Post consistently and study which topics get the most watch time.',
+    'Keep your profile photo, name and bio easy to understand for new visitors.',
+    'Create 2–3 repeatable content series around '+n+'.'
+  ];
+  document.getElementById('tips').innerHTML=tips.map(x=>'<li>'+x+'</li>').join('');
+  document.getElementById('result').style.display='block';
+}
+function ideas(){
+  let n=document.getElementById('ideaNiche').value;
+  let sets={
+   'Fashion / Lifestyle':['3 looks for one occasion','Before vs after styling','1 item, 3 outfits','Myth vs reality','A day in my life'],
+   'Gaming':['Best settings explained','1 mistake beginners make','Funny fail moment','Challenge run','Top 5 tips'],
+   'Travel':['Hidden place guide','Budget day plan','3 things to know before visiting','POV travel Reel','Food you must try'],
+   'Cars / Trucks':['Truck walkaround','Sound + cinematic shots','3 features you should know','Before/after clean-up','Road-trip POV'],
+   'Comedy':['Relatable school moment','Expectation vs reality','POV: when...','Family reaction skit','One-minute character'],
+   'Education':['3 facts in 20 seconds','Common mistake explained','Quick tutorial','Myth vs fact','Question of the day'],
+   'Fitness / Sports':['Beginner tips','Technique breakdown','Challenge','Common mistake','Progress checklist']
+  };
+  let arr=sets[n]||sets['Education'];
+  document.getElementById('ideasBox').innerHTML='<div class="card"><h3>'+n+' Reel ideas</h3><ol>'+arr.map(x=>'<li>'+x+'</li>').join('')+'</ol></div>';
+  document.getElementById('ideasBox').style.display='block';
+}
+</script>
+</body>
+</html>
