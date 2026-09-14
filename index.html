@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CreatorBoost Pro — Creator Tools</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08080e;color:#fff;font-family:Arial,Helvetica,sans-serif}
+nav{position:sticky;top:0;z-index:50;background:#0c0c13ee;backdrop-filter:blur(12px);border-bottom:1px solid #292936}
+.nav{max-width:1100px;margin:auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:26px;font-weight:900}.logo span{color:#ff008c}
+nav a{color:#ddd;text-decoration:none;margin-left:16px;font-weight:700;font-size:14px}
+.hero{text-align:center;padding:70px 18px;background:radial-gradient(circle at 50% 0,#650653,#220b2a 38%,#08080e 76%)}
+.eyebrow{color:#ff5bb2;font-weight:900;letter-spacing:2px}.hero h1{font-size:clamp(42px,9vw,76px);line-height:.98;margin:18px 0}.pink{color:#ff008c}.hero p{max-width:700px;margin:auto;color:#c8c8d2;font-size:18px;line-height:1.6}
+.btn{border:0;border-radius:14px;padding:14px 21px;background:#ff008c;color:#fff;font-size:16px;font-weight:900;cursor:pointer}.btn.alt{background:#252532}.hero .btn{margin:26px 6px 0}
+section{max-width:1080px;margin:auto;padding:60px 18px}.title{text-align:center;font-size:40px;margin:0 0 9px}.sub{text-align:center;color:#aaa;line-height:1.6;max-width:700px;margin:0 auto 28px}
+.card{background:#12121b;border:1px solid #2b2b39;border-radius:22px;padding:24px;box-shadow:0 16px 50px #0004}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;color:#bbb;font-weight:700;margin:0 0 7px}input,select,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #383846;background:#0b0b12;color:#fff;font-size:16px;margin-bottom:15px}textarea{min-height:105px;resize:vertical}
+.result{display:none;margin-top:20px}.scoregrid{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center}.score{font-size:52px;font-weight:900;color:#ff008c}.bar{height:12px;background:#2a2a35;border-radius:20px;overflow:hidden}.fill{height:100%;background:#ff008c;width:80%}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.stat{background:#0d0d14;border-radius:15px;padding:16px;text-align:center}.stat b{font-size:23px;display:block}.stat span{font-size:12px;color:#999}
+.featuregrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.feature h3{margin-top:0}.feature p{color:#aaa;line-height:1.5}.row{display:flex;gap:10px;flex-wrap:wrap}.row .btn{margin-top:0}
+.output{margin-top:16px;padding:18px;border-radius:15px;background:#0b0b12;border:1px solid #292936;line-height:1.6;color:#ddd;min-height:55px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.chip{padding:8px 11px;border-radius:20px;background:#261026;border:1px solid #68194e;color:#ff8bc8}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:18px}.day{background:#0d0d14;border-radius:13px;padding:14px 8px;text-align:center;border:1px solid #242430}.day b{display:block;margin-bottom:8px}.day small{color:#aaa;line-height:1.4}
+.notice{font-size:13px;color:#858592;line-height:1.5;margin-top:15px}.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.price{text-align:center}.price strong{display:block;color:#ff008c;font-size:38px;margin:10px}.price ul{text-align:left;color:#aaa;line-height:1.9}.price .btn{width:100%}
+footer{text-align:center;padding:35px;color:#777;border-top:1px solid #24242e}
+@media(max-width:700px){.grid2,.featuregrid,.pricing,.scoregrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.days{grid-template-columns:repeat(4,1fr)}nav a{margin-left:8px;font-size:12px}.logo{font-size:23px}}
+</style>
+</head>
+<body>
+<nav><div class="nav"><div class="logo">Creator<span>Boost</span></div><div><a href="#analyze">Analyze</a><a href="#tools">Tools</a><a href="#plan">Plan</a></div></div></nav>
+
+<header class="hero">
+<div class="eyebrow">CREATORBOOST PRO</div>
+<h1>Grow Smarter.<br><span class="pink">Create Better.</span></h1>
+<p>Professional creator tools for profile strategy, Reel ideas, captions, hashtags and a 7-day content plan.</p>
+<a href="#analyze"><button class="btn">Start Analysis</button></a>
+<a href="#tools"><button class="btn alt">Open Pro Tools</button></a>
+</header>
+
+<section id="analyze">
+<h2 class="title">Advanced Profile Analyzer</h2>
+<p class="sub">Get a strategy score from the information you enter. No Instagram password or private-account access is required.</p>
+<div class="card">
+<div class="grid2">
+<div><label>Username</label><input id="user" placeholder="@yourusername"></div>
+<div><label>Niche</label><select id="niche"><option>Fashion / Lifestyle</option><option>Gaming</option><option>Travel</option><option>Cars / Trucks</option><option>Comedy</option><option>Education</option><option>Fitness / Sports</option></select></div>
+</div>
+<div class="grid2">
+<div><label>Posting frequency</label><select id="freq"><option>1–2 times/week</option><option>3–4 times/week</option><option>5+ times/week</option></select></div>
+<div><label>Main format</label><select id="format"><option>Reels</option><option>Photos / Carousels</option><option>Stories</option></select></div>
+</div>
+<button class="btn" onclick="analyze()">Generate Pro Report</button>
+<div class="result" id="report">
+<div class="scoregrid"><div><div class="score" id="score">84</div><small>/100 Creator Score</small></div><div><h3 id="rtitle">Strategy strength</h3><div class="bar"><div class="fill" id="fill"></div></div><p id="summary" style="color:#aaa"></p></div></div>
+<div class="stats"><div class="stat"><b id="cons">8/10</b><span>Consistency</span></div><div class="stat"><b id="hook">9/10</b><span>Hook potential</span></div><div class="stat"><b id="nicheScore">9/10</b><span>Niche clarity</span></div><div class="stat"><b id="formatScore">8/10</b><span>Format fit</span></div></div>
+<div class="output" id="tips"></div>
+</div>
+<div class="notice">This is a strategy/demo analyzer. It does not log into Instagram, access private data, or guarantee follower growth.</div>
+</div>
+</section>
+
+<section id="tools">
+<h2 class="title">Pro Creator Tools</h2>
+<p class="sub">Use these tools to turn one idea into a complete piece of content.</p>
+<div class="featuregrid">
+<div class="card feature"><h3>🎬 Reel Idea Generator</h3><select id="ideaNiche"><option>Fashion / Lifestyle</option><option>Gaming</option><option>Travel</option><option>Cars / Trucks</option><option>Comedy</option><option>Education</option><option>Fitness / Sports</option></select><button class="btn" onclick="genIdea()">Generate</button><div class="output" id="ideaOut">Your next Reel idea appears here.</div></div>
+
+<div class="card feature"><h3>🪝 Viral-Style Hook Builder</h3><input id="topic" placeholder="Example: new truck features"><button class="btn" onclick="genHooks()">Create Hooks</button><div class="output" id="hookOut">Enter a topic to create 3 hook options.</div></div>
+
+<div class="card feature"><h3>✍️ Caption Generator</h3><textarea id="capTopic" placeholder="Describe your post..."></textarea><button class="btn" onclick="genCaption()">Generate Caption</button><div class="output" id="capOut">Your caption will appear here.</div></div>
+
+<div class="card feature"><h3>#️⃣ Hashtag Ideas</h3><input id="hashTopic" placeholder="Example: Indian trucks"><button class="btn" onclick="genTags()">Generate Tags</button><div class="chips" id="tags"></div></div>
+</div>
+</section>
+
+<section>
+<h2 class="title">7-Day Content Planner</h2><p class="sub">A simple weekly schedule you can follow and adjust to your own style.</p>
+<div class="card">
+<div class="days" id="days"></div>
+</div>
+</section>
+
+<section id="plan">
+<h2 class="title">Creator Plans</h2><p class="sub">Pricing is displayed as a website UI demo. Connect a real payment provider before accepting payments.</p>
+<div class="pricing">
+<div class="card price"><h3>Starter</h3><strong>₹199</strong><ul><li>Basic analysis</li><li>20 Reel ideas</li><li>Caption prompts</li></ul><button class="btn">Choose Plan</button></div>
+<div class="card price"><h3>Creator Pro</h3><strong>₹499</strong><ul><li>Pro strategy report</li><li>100 Reel ideas</li><li>Hooks + hashtags</li><li>7-day planner</li></ul><button class="btn">Choose Plan</button></div>
+<div class="card price"><h3>Pro Max</h3><strong>₹999</strong><ul><li>Advanced strategy</li><li>300 ideas</li><li>30-day planner</li><li>Content workflow</li></ul><button class="btn">Choose Plan</button></div>
+</div>
+</section>
+<footer>© 2026 CreatorBoost • Real content. Real growth.</footer>
+
+<script>
+const data={
+"Fashion / Lifestyle":["Style Challenge","Before & After","3 Outfit Ideas"],
+"Gaming":["One-Minute Challenge","3 Beginner Tips","Best Moment Breakdown"],
+"Travel":["Hidden Local Spot","Budget Mini Guide","POV Travel Story"],
+"Cars / Trucks":["Truck Walkaround","3 Vehicle Features","Detail Montage"],
+"Comedy":["Expectation vs Reality","Relatable Situation","Comment-to-Skit"],
+"Education":["Myth vs Fact","3 Quick Facts","Explain It Simply"],
+"Fitness / Sports":["3 Beginner Tips","Skill Challenge","Technique Breakdown"]};
+function analyze(){
+let u=document.getElementById("user").value.trim();if(!u){alert("Username enter karo 🙂");return}
+let s=72+Math.floor(Math.random()*24),n=document.getElementById("niche").value;
+document.getElementById("score").textContent=s;document.getElementById("fill").style.width=s+"%";
+document.getElementById("rtitle").textContent=u.replace(/^@/,"@")+" — Pro Report";
+document.getElementById("summary").textContent=s>=88?"Strong foundation. Focus on repeatable series and audience interaction.":"Good foundation. Improve hooks, consistency and clear content series.";
+document.getElementById("cons").textContent=document.getElementById("freq").value==="5+ times/week"?"10/10":document.getElementById("freq").value==="3–4 times/week"?"8/10":"6/10";
+document.getElementById("hook").textContent=(7+Math.floor(Math.random()*4))+"/10";
+document.getElementById("nicheScore").textContent="9/10";document.getElementById("formatScore").textContent="8/10";
+document.getElementById("tips").innerHTML="<b>Top actions:</b><br>• Start each Reel with a clear hook in the first seconds.<br>• Build 2–3 repeatable content series around "+n+".<br>• Keep your bio promise simple and specific.<br>• Review which posts get the most saves, shares and comments.";
+document.getElementById("report").style.display="block";
+}
+function genIdea(){let n=document.getElementById("ideaNiche").value,a=data[n],x=a[Math.floor(Math.random()*a.length)];document.getElementById("ideaOut").innerHTML="<b>🔥 "+x+"</b><br><span style='color:#aaa'>Hook → quick visuals → one useful takeaway → simple question for viewers.</span>";}
+function genHooks(){let t=document.getElementById("topic").value.trim();if(!t){alert("Topic enter karo 🙂");return}document.getElementById("hookOut").innerHTML="1. <b>“Most people get "+t+" wrong…”</b><br>2. <b>“Before you try "+t+", watch this.”</b><br>3. <b>“3 things I wish I knew about "+t+".”</b>";}
+function genCaption(){let t=document.getElementById("capTopic").value.trim();if(!t){alert("Post ka topic likho 🙂");return}document.getElementById("capOut").textContent=t+" — sharing this for anyone who wants to learn, improve and create better content. What would you add? 👇";}
+function genTags(){let t=document.getElementById("hashTopic").value.trim()||"creator";let w=t.toLowerCase().replace(/[^a-z0-9]+/g,"");let tags=["#"+w,"#contentcreator","#reels","#instagramtips","#creatortips","#reelideas","#contentstrategy","#growwithcontent"];document.getElementById("tags").innerHTML=tags.map(x=>"<span class='chip'>"+x+"</span>").join("");}
+const plan=["Niche Reel","Carousel / Tips","Behind the Scenes","Educational Reel","Community Question","Trend Adaptation","Best-of / Recap"];
+document.getElementById("days").innerHTML=plan.map((x,i)=>"<div class='day'><b>"+["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][i]+"</b><small>"+x+"</small></div>").join("");
+</script>
+</body>
+</html>
