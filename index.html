@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CreatorBoost Pro</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#08080d;color:#fff}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:#0d0d14;position:sticky;top:0;z-index:5}
+.logo{font-size:25px;font-weight:800}.logo span,h1 span{color:#ff008c}
+nav a{color:#ddd;text-decoration:none;margin-left:18px}
+.hero{text-align:center;padding:80px 7%;background:radial-gradient(circle at 50% 0,#5d0050,#08080d 65%)}
+.badge{color:#ff4eaf;font-weight:700;letter-spacing:3px}
+h1{font-size:clamp(42px,8vw,76px);margin:18px 0}
+.hero p{max-width:680px;margin:0 auto 28px;color:#bbb;font-size:20px;line-height:1.6}
+.btn{border:0;border-radius:14px;padding:15px 24px;font-size:17px;font-weight:700;cursor:pointer;background:#ff008c;color:#fff}
+.btn.secondary{background:#252532;margin-left:10px}
+section{max-width:1100px;margin:auto;padding:55px 6%}
+h2{text-align:center;font-size:34px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#15151f;border:1px solid #2b2b39;border-radius:18px;padding:24px}
+.card p{color:#aaa;line-height:1.5}
+.auth{max-width:480px;margin:35px auto;background:#111119;border:1px solid #2b2b39;border-radius:20px;padding:25px}
+input{width:100%;padding:15px;margin:8px 0 14px;border-radius:12px;border:1px solid #3a3a48;background:#08080d;color:#fff;font-size:16px}
+label{font-weight:700;color:#ddd}
+.msg{margin-top:15px;color:#ff79c6;line-height:1.4}
+.hidden{display:none}
+footer{text-align:center;padding:30px;color:#777}
+@media(max-width:600px){nav{padding:15px 4%}nav a{margin-left:9px;font-size:14px}.hero{padding-top:55px}.btn.secondary{margin:10px 0 0}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Creator<span>Boost</span></div>
+  <div>
+    <a href="#tools">Tools</a>
+    <a href="#plans">Plans</a>
+    <a href="#account">Account</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="badge">CREATORBOOST PRO</div>
+  <h1>Your Creator <span>Command Center</span></h1>
+  <p>Plan content, generate ideas and keep your creator workflow in one place.</p>
+  <button class="btn" onclick="document.getElementById('account').scrollIntoView()">Login / Sign up</button>
+  <button class="btn secondary" onclick="openDashboard()">Open Dashboard</button>
+</header>
+
+<section id="tools">
+<h2>Quick Pro Tools</h2>
+<div class="grid">
+  <div class="card"><h3>🎬 Reel Ideas</h3><p>Generate fresh short-video ideas for your content plan.</p></div>
+  <div class="card"><h3>🪝 Hook Builder</h3><p>Create strong opening lines for your posts.</p></div>
+  <div class="card"><h3>✍️ Caption Builder</h3><p>Build captions quickly from your topic.</p></div>
+  <div class="card"><h3>📅 Weekly Planner</h3><p>Organize your creator workflow for the week.</p></div>
+</div>
+</section>
+
+<section id="plans">
+<h2>Creator Plans</h2>
+<div class="grid">
+  <div class="card"><h3>Starter</h3><p>Basic creator planning tools.</p></div>
+  <div class="card"><h3>Creator Pro</h3><p>More tools and a personal dashboard.</p></div>
+  <div class="card"><h3>Pro Max</h3><p>Full creator command-center experience.</p></div>
+</div>
+</section>
+
+<section id="account">
+<h2>Creator Account</h2>
+<div class="auth">
+  <div id="loggedOut">
+    <label>Name</label>
+    <input id="name" placeholder="Your name">
+    <label>Email</label>
+    <input id="email" type="email" placeholder="you@example.com">
+    <label>Password</label>
+    <input id="password" type="password" placeholder="Minimum 6 characters">
+    <button class="btn" onclick="signUp()">Create account</button>
+    <button class="btn secondary" onclick="signIn()">Login</button>
+    <div id="msg" class="msg"></div>
+  </div>
+
+  <div id="loggedIn" class="hidden">
+    <h3>Welcome, <span id="userName"></span> 👋</h3>
+    <p id="userEmail" style="color:#aaa"></p>
+    <button class="btn" onclick="openDashboard()">Open Dashboard</button>
+    <button class="btn secondary" onclick="signOut()">Logout</button>
+    <div id="dash" class="hidden">
+      <hr style="border-color:#2b2b39;margin:25px 0">
+      <h3>📊 Creator Dashboard</h3>
+      <div class="grid">
+        <div class="card"><h3>🎬</h3><p>Reel Ideas</p><button class="btn" onclick="alert('Reel idea tool ready!')">Open</button></div>
+        <div class="card"><h3>🪝</h3><p>Hook Builder</p><button class="btn" onclick="alert('Hook builder ready!')">Open</button></div>
+        <div class="card"><h3>✍️</h3><p>Caption Builder</p><button class="btn" onclick="alert('Caption builder ready!')">Open</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>© 2026 CreatorBoost • Creator command center</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/*
+  IMPORTANT:
+  Replace the two values below with your Supabase Project URL
+  and your project's public "anon" key.
+  Never put a service_role/secret key in this HTML.
+*/
+const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL_HERE";
+const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
+
+let sb = null;
+if (!SUPABASE_URL.includes("PASTE_") && !SUPABASE_ANON_KEY.includes("PASTE_")) {
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+function showMsg(t){document.getElementById("msg").textContent=t}
+
+async function signUp(){
+  if(!sb){showMsg("Supabase URL and anon key are not added yet.");return}
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+  if(!name||!email||password.length<6){showMsg("Name, email and a 6+ character password are required.");return}
+  showMsg("Creating account...");
+  const {data,error}=await sb.auth.signUp({email,password,options:{data:{name}}});
+  if(error){showMsg(error.message);return}
+  if(data.user){
+    const {error:pErr}=await sb.from("Profiles").upsert({id:data.user.id,"Name":name});
+    if(pErr) console.log("Profile save:",pErr.message);
+  }
+  showMsg("Account created. If email confirmation is enabled, check your email, then login.");
+}
+
+async function signIn(){
+  if(!sb){showMsg("Supabase URL and anon key are not added yet.");return}
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+  if(!email||!password){showMsg("Enter your email and password.");return}
+  showMsg("Logging in...");
+  const {error}=await sb.auth.signInWithPassword({email,password});
+  if(error){showMsg(error.message);return}
+  await refreshUser();
+}
+
+async function signOut(){
+  if(sb) await sb.auth.signOut();
+  document.getElementById("loggedIn").classList.add("hidden");
+  document.getElementById("loggedOut").classList.remove("hidden");
+  document.getElementById("dash").classList.add("hidden");
+}
+
+function openDashboard(){
+  document.getElementById("account").scrollIntoView({behavior:"smooth"});
+  if(!document.getElementById("loggedIn").classList.contains("hidden"))
+    document.getElementById("dash").classList.remove("hidden");
+}
+
+async function refreshUser(){
+  if(!sb)return;
+  const {data}=await sb.auth.getUser();
+  const u=data.user;
+  if(!u)return;
+  document.getElementById("loggedOut").classList.add("hidden");
+  document.getElementById("loggedIn").classList.remove("hidden");
+  document.getElementById("userEmail").textContent=u.email||"";
+  document.getElementById("userName").textContent=u.user_metadata?.name||"Creator";
+}
+
+if(sb){
+  sb.auth.onAuthStateChange((_event,_session)=>refreshUser());
+  refreshUser();
+}
+</script>
+</body>
+</html>
